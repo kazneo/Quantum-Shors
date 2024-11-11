@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./assets/style.css">
+        <script src="./assets/script.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 onclick="redirectToHome()" >Quantum Shor's Algorithm</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./result.html">Result</a></li>
+                    <li><a href="./document.html">Document</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class='container' id='result'>
+                <h1>Result</h1>
+                <p>
+                    N = 33 => 3 and 11
+                    <br/>
+                    N = 1001 => 6 and 167 (not true)
+                    <br/>
+                    Despite harge leve of the quantume error we were able to find factorization of each numbers
+
+                    implementation of Shor's algorithm successfully factored small numbers, demonstrating the potential of quantum algorithms in integer 
+                    factorization even with high quantum error rates. For N=33, the algorithm accurately found the factors 3 and 11 However, as N increased, 
+                    the results became more error-prone, as seen with the factorization of N = 1001 which yielded an incorrect result (6 and 167). This outcome 
+                    indicates that larger values of N amplify the algorithm’s sensitivity to quantum errors, underscoring the current limitations of error management 
+                    in our quantum setup. Improvements in error correction and circuit fidelity are essential to scale Shor's algorithm for larger numbers 
+                    reliably and to unlock its full potential in practical applications.
+                </p>
+            </div>
+            <div id="circuit1001">
+                <img src="./assets/shorCircuit1001.png" alt="shorCircuit1001" id="circuit">
+            </div>
+            <div class="image-container">
+                <img src="./assets/brian.jpg" alt="Dr.C">
+                <div>Not approved by Dr. C</div>
+            </div>
+        </main>
+        <footer>
+            <div>Built by Kazuki Neo in loving memory of Seth Wanabe</div>
+        </footer>
+    </body>
+</html>

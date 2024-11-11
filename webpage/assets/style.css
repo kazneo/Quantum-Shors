@@ -1,0 +1,171 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%; /* Ensure the body takes up the full viewport height */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+header {
+    background-color: #ab2328;
+    color: #fff;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+header > h1:hover {
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #000;
+}
+
+main {
+    flex-grow: 1;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    /* width: 60%; */
+}
+
+.container {
+    width: 65%;
+}
+
+/* Result Section */
+
+#result p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Image Styling */
+.image-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #ab2328;
+}
+
+
+#circuit1001 {
+    display: grid;
+    place-items: center;
+}
+#circuit {
+    width: 50vh;
+    /* height: auto; */
+    /* border-radius: 50%; */
+    border: 3px solid #ab2328;
+    margin-top: 2rem;
+    margin:auto;
+    text-align: center;
+}
+
+
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+footer > div {
+    font-size: 0.9rem;
+}
+
+#doc {
+    margin-bottom: 2rem;
+}
+
+#doc h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#doc h2 {
+    font-size: 2rem;
+    color: #ab2328;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#doc p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+#doc ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+#doc ul li {
+    list-style-type: disc;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Code block styling */
+code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    color: #ab2328;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./assets/style.css">
+        <script src="./assets/script.js" defer></script>
+
+    </head>
+
+    <body>
+        <header>
+            <h1 onclick="redirectToHome()">Quantum Shor's Algorithm</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./result.html">Result</a></li>
+                    <li><a href="./document.html">Document</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class='container' id='encription'>
+                <h1>Current Encription</h1>
+                <p>
+                    Among many encryption techniqes, RSA encryption is a widely-used asymmetric encryption method, central to securing data over 
+                    the internet by providing confidentiality and authentication. It works with a pair of keys: a public key for encryption and 
+                    a private key for decryption. The security of RSA relies on the computational difficulty of factoring large prime numbers, 
+                    making it highly resistant to brute-force attacks with conventional computers. RSA is fundamental in protocols like SSL/TLS, 
+                    which secure online communication, and in digital signatures, where it verifies the authenticity and integrity of documents or software.
+        
+                    Despite its strengths, RSA faces challenges, particularly due to the computational demands of its large key sizes, which make it 
+                    slower than symmetric encryption for large data sets. Additionally, the future threat posed by quantum computing, which could break 
+                    RSA's security through advanced factoring, is driving research into quantum-resistant alternatives like lattice-based cryptography 
+                    and elliptic curve cryptography (ECC), which offers comparable security with smaller keys. However, RSA remains essential in modern 
+                    cryptography, particularly in hybrid models where it enables secure key exchange alongside faster symmetric encryption algorithms for data transfer.
+                </p>
+            </div>
+            <div class='container' id='motivation'>
+                <h1>Motivation</h1>
+                <p>
+                    Shor's algorithm presents significant cybersecurity implications for smart city infrastructure, as it could undermine the RSA encryption that many urban 
+                    systems currently rely on. As cities adopt interconnected, digitally controlled systems—like smart grids, traffic management, and public safety networks—secure 
+                    data transmission is essential to prevent cyber threats. However, with the rise of quantum computing and algorithms like Shor’s, these conventional encryption 
+                    methods may become vulnerable, potentially exposing critical urban systems to cyberattacks.
+        
+                    To future-proof smart city infrastructure, urban upgrades will need to incorporate quantum-resistant encryption methods to mitigate the risks posed by Shor’s 
+                    algorithm and quantum advances. Investing in quantum-secure technology now is essential to ensure that complex urban systems remain safe, sustainable, and 
+                    resilient in the face of evolving cybersecurity challenges.
+                </p>
+            </div>
+            <div>
+                <div class="image-container">
+                    <img src="./assets/brian.jpg" alt="Dr.C">
+                    <div>Not approved by Dr. C</div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div>Built by Kazuki Neo in loving memory of Seth Wanabe</div>
+        </footer>
+    </body>
+</html>

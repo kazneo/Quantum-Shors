@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./assets/style.css">
+        <script src="./assets/script.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <h1 onclick="redirectToHome()">Quantum Shor's Algorithm</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./result.html">Result</a></li>
+                    <li><a href="./document.html">Document</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container" id="doc">
+                <h1>Documentation: Implementing Shor's Algorithm</h1>
+                
+                <section>
+                    <h2>Overview</h2>
+                    <p>
+                        This page documents an implementation of Shor's Algorithm, a quantum algorithm for integer factorization. 
+                        It uses Qiskit to create quantum circuits, apply quantum Fourier transforms, and execute on IBM Quantum backends. 
+                        This approach is capable of finding prime factors of large integers faster than classical algorithms under certain conditions.
+                    </p>
+                </section>
+                
+                <section>
+                    <h2>Parameters and Constants</h2>
+                    <p>The following constants are used to define the quantum circuit for the algorithm:</p>
+                    <ul>
+                        <li><strong>N</strong> - The integer we want to factor.</li>
+                        <li><strong>num_qubits</strong> - Number of qubits needed to represent N in binary, determined by log<sub>2</sub>(N).</li>
+                        <li><strong>num_qubits_0</strong> - Twice the number of qubits used in ancillary calculations.</li>
+                        <li><strong>pi</strong> - Mathematical constant, \(\pi\).</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Function Definitions</h2>
+                    
+                    <h3><code>c_amodN(a, power, n_qubits)</code></h3>
+                    <p>Generates a controlled modular exponentiation gate.</p>
+                    <ul>
+                        <li><strong>Parameters</strong>:
+                            <ul>
+                                <li><code>a</code>: Base of exponentiation.</li>
+                                <li><code>power</code>: Exponent value.</li>
+                                <li><code>n_qubits</code>: Number of qubits used in computation.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Returns</strong>: Controlled gate representing modular exponentiation.</li>
+                    </ul>
+                    
+                    <h3><code>controlled_U(circuit, num_qubit, a)</code></h3>
+                    <p>Applies a series of controlled gates based on <code>c_amodN</code> to a given circuit.</p>
+                    <ul>
+                        <li><strong>Parameters</strong>: 
+                            <ul>
+                                <li><code>circuit</code>: Target circuit.</li>
+                                <li><code>num_qubit</code>: Number of qubits in the computation.</li>
+                                <li><code>a</code>: Base integer for modular exponentiation.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Returns</strong>: Modified circuit with controlled modular gates.</li>
+                    </ul>
+                    
+                    <h3><code>modexp(a, k, base)</code></h3>
+                    <p>Helper function for classical modular exponentiation.</p>
+                    <ul>
+                        <li><strong>Parameters</strong>: <code>a</code> (base), <code>k</code> (exponent), <code>base</code> (modulus).</li>
+                        <li><strong>Returns</strong>: Result of \(a^k \mod \text{base}\).</li>
+                    </ul>
+                    
+                    <h3>Quantum Fourier Transform (QFT) Functions</h3>
+                    <p>These functions apply the Quantum Fourier Transform and its inverse, essential for period finding in Shor's Algorithm.</p>
+                    <ul>
+                        <li><code>qft_rotations</code>: Applies rotation gates for QFT.</li>
+                        <li><code>swap_registers</code>: Swaps qubits to complete the QFT.</li>
+                        <li><code>qft</code>: Full QFT circuit.</li>
+                        <li><code>inverse_qft</code>: Creates and applies the inverse QFT.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Classical Pre-Processing for Shor's Algorithm</h2>
+                    <p>Trivial factors of <code>N</code> are first checked, simplifying cases where <code>N</code> is even. If no trivial factor is found, the algorithm proceeds to apply the quantum circuit.</p>
+                </section>
+                
+                <section>
+                    <h2>Quantum Circuit Setup</h2>
+                    <p>The quantum circuit <code>qc</code> is initialized with <code>num_qubits_0 + num_qubits</code> qubits, then the following steps are applied:</p>
+                    <ul>
+                        <li>Hadamard and X gates prepare qubits for the Fourier transform and exponentiation.</li>
+                        <li>Controlled modular exponentiation gates are added using <code>controlled_U</code>.</li>
+                        <li>Inverse QFT is applied, and qubits are measured to determine the result.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Execution on Quantum Backend</h2>
+                    <p>The IBM Qiskit Runtime Service executes the circuit on IBM's quantum backend. The results, sampled over 10,000 shots, are analyzed to identify the period <code>r</code> of the circuit output.</p>
+                </section>
+                
+                <section>
+                    <h2>Post-Processing for Factors</h2>
+                    <p>Once the period <code>r</code> is found, classical computations calculate the non-trivial factors of <code>N</code> if <code>r</code> is even. If <code>r</code> is odd, the process repeats with a new random base <code>a</code>.</p>
+                </section>
+                
+                <section>
+                    <h2>Example Output</h2>
+                    <p>Outputs include:</p>
+                    <ul>
+                        <li><strong>num_qubits</strong>: The number of qubits used in the circuit.</li>
+                        <li><strong>dist</strong>: Measured distribution of results.</li>
+                        <li><strong>r</strong>: Extracted period.</li>
+                        <li>Factors, if successfully computed.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="image-container">
+                <img src="./assets/brian.jpg" alt="Dr.C">
+                <div>Not approved by Dr. C</div>
+            </div>
+        </main>
+        <footer>
+            <div>Built by Kazuki Neo in loving memory of Seth Wanabe</div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+Shor's Factorization Algorithm: 
+________________________________ 
+
+Given: some large number N. 
+
+1. Check if N is even. If so, 2 is one factor, and N/2 is the other. You're done. 
+
+2. Assume N is odd. 
+
+3. Determine if N is a prime power classically (fast algorithms exist). 
+	-- can probably skip this for now 
+
+4. Assume N is not a prime power. 
+
+5. Pick a random integer a between 2 and N. 
+
+6. Take the greatest common divisor of a and N using Euclid's Algorithm. If the gcd is not 1, then non-trivial factors are found (namely the gcd and N/gcd). 
+
+7. Assume N is coprime with a, so a^r = 1 mod N for r = the smallest possible integer that satisfies this relation. 
+
+8. Use Shor's quantum algorithm to find r (I can do this) 
+
+9. Compute g = gcd(N, a^(r/2) + 1). If g is nontrivial, the other factor is N/g and you're done. If g is trivial, repeat from the step 1. 
+
