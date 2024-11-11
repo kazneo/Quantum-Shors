@@ -97,6 +97,7 @@ main {
     display: grid;
     place-items: center;
 }
+
 #circuit {
     width: 50vh;
     /* height: auto; */
