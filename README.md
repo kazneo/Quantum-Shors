@@ -13,7 +13,6 @@ Seth Watanabe - I'm better god
 
 
 ## Inspiration
-
 Our inspiration for this project comes from the growing need for secure, resilient infrastructure in the age of smart cities. Shor’s algorithm, a groundbreaking quantum algorithm, has the potential to break RSA encryption, which is foundational for today’s digital security. With quantum computing progressing quickly, this project explores the algorithm’s impact on cybersecurity and urban resilience.
 
 ## What It Does
